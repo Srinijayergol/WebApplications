@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 app.get('/contactlist', function(req, res){
 	console.log("Route between controller and server is successful");
-
+	console.log("Testing");
 	db.contactlist.find(function(err, docs){
        console.log(docs);
        res.json(docs);
