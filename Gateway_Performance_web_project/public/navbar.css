@@ -1,0 +1,43 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+tr {
+width: 100%;
+display: inline-table;
+table-layout: fixed;
+}
+
+thead {
+width: 1000px
+}
+
+table{
+ height:300px;
+           // <-- Select the height of the table
+}
+
+tbody{
+  overflow-y: scroll;
+  height: 260px;            //  <-- Select the height of the body
+  width: 2000px;
+  position: absolute;
+}
+
+.form-area
+{
+    background-color: #FAFAFA;
+	padding: 10px 100px 100px;
+	margin: 10px 0px 60px;
+	border: 1px solid GREY;
+}
+
+.disabled {
+    pointer-events:none; //This makes it not clickable
+    opacity:0.6;         //This grays it out to look disabled
+}

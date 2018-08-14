@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html ng-app="myGatewayApp">
+    <head>
+    	<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  	    <title>Gateway performance Dashboard</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+        <script src="Controllers/indexController.js"></script>
+  	     <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel ="stylesheet" href="navbar.css">
+    </head>
+    <body>
+
+    	<div class="container" ng-controller="myGatewayController">
+
+	    	<nav class="navbar navbar-default">
+	            <div class="container-fluid">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	                <div class="navbar-header">
+	                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    </button>
+	                    <a class="navbar-brand" href="index.html">GW Performance</a>
+	                </div>
+	                <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+	                    <ul class="nav navbar-nav">
+	                       	<li class="disabled"><a href="build.html">Build </a></li>
+                          <li class="disabled"><a href="buildData.html">Build_Data </a></li>
+	                        <li class="disabled"><a href="result_history.html">History/Results</a></li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </nav>
+            <div class="col-xs-4">
+                <h2 class="sub-header">List of GW Machines Running</h2>
+                <div class="table-responsive">
+                  <table ng-init="loadValues()" class="table table-striped">
+                    <tr>
+                        <th>Name</th>
+                        <th>Launch_Time</th>
+                        <th>Instance_id</th>
+                   </tr>
+                   <tr ng-repeat="gwValues in list.data.GW_Machine">
+                     <td>{{gwValues.Name}}</td>
+                     <td>{{gwValues.Launch_Time}}</td>
+                     <td>{{gwValues.Instance_id}}</td>
+                   </tr>
+                  </table>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <h2 class="sub-header">List of HA Proxies Running</h2>
+                <div class="table-responsive">
+	                <table ng-init="loadValues()" class="table table-striped">
+                      <tr>
+                          <th>Name</th>
+                          <th>Launch_Time</th>
+                          <th>Instance_id</th>
+                     </tr>
+                     <tr ng-repeat="HA_Proxies in list.data.HA_Proxies">
+                       <td>{{HA_Proxies.Name}}</td>
+                       <td>{{HA_Proxies.Launch_Time}}</td>
+                       <td>{{HA_Proxies.Instance_id}}</td>
+                     </tr>
+                  </table>
+                </div>
+	         </div>
+	        <div class="col-xs-4">
+                <h2 class="sub-header">List of WPG Machines Running</h2>
+                <div class="table-responsive">
+	                <table ng-init="loadValues()" class="table table-striped">
+                    <tr>
+                        <th>Name</th>
+                        <th>Launch_Time</th>
+                        <th>Instance_id</th>
+                   </tr>
+                   <tr ng-repeat="WPG_Instance in list.data.WPG_Instance">
+                     <td>{{WPG_Instance.Name}}</td>
+                     <td>{{WPG_Instance.Launch_Time}}</td>
+                     <td>{{WPG_Instance.Instance_id}}</td>
+                   </tr>
+	                </table>
+                </div>
+	        </div>
+	     </div>
+	<div class ="container">
+      <div class="jumbotron">
+        <h1 class="sub-header">Current Builds in Progress </h1>
+          <div class="col-xs-8">
+              <h3 class="sub-header">Current EPD Builds in Progress</h3>
+              <div class="table-responsive">
+                <table ng-init="loadCurrentBuildValues()" class="table table-striped">
+                  <tr>
+                      <th>Build Name</th>
+                      <th>Build Number</th>
+                      <th>Build URL</th>
+                      <th>Description</th>
+                 </tr>
+                 <!--<tbody id="sortable" data-bind="foreach: JenkinsJobList">
+                   <tr data-bind="foreach: EPD_Jobs">-->
+                 <tr ng-repeat="EPD_Jobs_Instance in list_currentBuild.data.JenkinsJobList.EPD_Jobs">
+                   <td>{{EPD_Jobs_Instance.build_name}}</td>
+                   <td>{{EPD_Jobs_Instance.build_no}}</td>
+                   <td>{{EPD_Jobs_Instance.build_url}}</td>
+                   <td>{{EPD_Jobs_Instance.description}}</td>
+                 </tr>
+                </table>
+          </div>
+        </div>
+      </div>
+     </div>
+    </body>
+</html>

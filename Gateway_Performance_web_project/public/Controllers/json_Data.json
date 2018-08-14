@@ -1,0 +1,64 @@
+{
+  "HA_Proxies": [
+    {
+      "Name": "HA_001",
+      "Launch_Time": "Time",
+      "Instance_id": "Instance_id"
+    },
+    {
+      "Name": "HA_002",
+      "Launch_Time": "Time",
+      "Instance_id": "Instance_id"
+    },
+    {
+      "Name": "HA_003",
+      "Launch_Time": "Time",
+      "Instance_id": "Instance_id"
+    }
+
+  ],
+  "WPG_Instance": [
+    {
+      "Name": "WPG_001",
+      "Launch_Time": "Time",
+      "Instance_id": "Instance_id"
+    },
+    {
+      "Name": "WPG_002",
+      "Launch_Time": "Time",
+      "Instance_id": "Instance_id"
+    },
+    {
+      "Name": "WPG_003",
+      "Launch_Time": "Time",
+      "Instance_id": "Instance_id"
+    },
+    {
+      "Name": "WPG_004",
+      "Launch_Time": "Time",
+      "Instance_id": "Instance_id"
+    }
+  ],
+  "GW_Machine": [
+    {
+      "Name": "GW_001",
+      "Launch_Time": "Time",
+      "Instance_id": "Instance_id"
+    },
+    {
+      "Name": "GW_002",
+      "Launch_Time": "Time",
+      "Instance_id": "Instance_id"
+    },
+    {
+      "Name": "GW_003",
+      "Launch_Time": "Time",
+      "Instance_id": "Instance_id"
+    },
+    {
+      "Name": "GW_004",
+      "Launch_Time": "Time",
+      "Instance_id": "Instance_id"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html ng-app="buildApp">
+  	<head>
+	  	<title>Build</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script src="Controllers/buildController.js"></script>
+	  	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	      <link rel ="stylesheet" href="navbar.css">
+	</head>
+	<body>
+
+		<div class = "container" ng-controller="buildCtrl">
+
+	    	<nav class="navbar navbar-default">
+	            <div class="container-fluid">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	                <div class="navbar-header">
+	                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    </button>
+	                    <a class="navbar-brand" href="index.html">GW Performance</a>
+	                </div>
+	                <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+	                    <ul class="nav navbar-nav">
+	                       	<li><a href="build.html">Build </a></li>
+                          <li><a href="buildData.html">Build Data </a></li>
+	                        <li><a href="result_history.html">History/Results</a></li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </nav>
+			<div class="col-md-13">
+				<div class="form-area">
+					<form role="form">
+
+						<h3 style="margin-bottom: 25px;">Build Gateway performance test</h3>
+
+						<div class="form-group">
+  							<label for="WPG_Client" class="col-sm-3 control-label"> 1. WPG_client_server_type: </label>
+  							<div class="col-sm-9">
+                      <select class="form-control" id="wpg_clientServer" name="wpg_clientServer" ng-model="selectedWPG_client" ng-options="x for x in names">
+                      </select>
+                </div>
+			        </div>
+			           <br><br>
+			            <div class="form-group">
+				                <label for="gw_required" class="col-sm-3 control-label"><b>2. Is_GW_required: </b></label>
+				                <div class="col-sm-9">
+					            <div class ="radio">
+					            	<label><input type="radio" name="optradio" ng-model="myRadioVar">Yes </label>
+					            	<label><input type="radio" name="optradio" ng-model="myRadioVar">No </label>
+					            </div>
+				                </div>
+			            </div>
+			            <br>
+				        <div class="form-group">
+			                <label for="users" class="col-sm-3 control-label">3. No_of_users: </label>
+			                <div class="col-sm-9">
+				               <input type="text" class="form-control" id="users" ng-model="no_of_users">
+				            </div>
+				        </div>
+				        <br><br>
+				        <div class="form-group">
+			                <label for="gwnode" class="col-sm-3 control-label">4. GW_node: </label>
+			                <div class="col-sm-9">
+				               <input type="text" class="form-control" id="gwnode" ng-model="gw_Node">
+				            </div>
+				        </div>
+				        <br><br>
+				        <div class="form-group">
+				            <label for="pgoptions" class="col-sm-3 control-label">5. PG_Options: </label>
+				            <div class="col-sm-9">
+			                    <textarea class="form-control" rows="4" id="pgoptions" ng-model="pg_Options"></textarea>
+			                </div>
+			            </div>
+
+			            <br></br><br></br>
+
+			            <div id="pgFile" class="form-group">
+			                <label for="pg_File" class="col-sm-3 control-label">6. PG_File: </label>
+				            <div class="col-sm-9">
+                                <select class="form-control" id="pgFiledropdown" ng-model="myPGFileVar">
+                                    <option value="select">Select</option>
+                                    <option value="fileDelete" >File_delete</option>
+                                    <option value="fileUpload">File_update</option>
+                                    <option value="fileShare">File_share</option>
+                                    <option value="folderCreate">Folder_Create</option>
+                                    <option value="folderUpdate">Folder_update</option>
+                                    <option value="folderDelete">Folder_delete</option>
+                                    <option value="folderShare">Folder_share</option>
+                                    <option value="protoBuf">ProtoBuf</option>
+                                    <option value="protoBufGmail">Protobuf_Gmail</option>
+                                    <option value="getEPD">Get_Non_EPD</option>
+                                    <option value="postEPD">Post_Non_EPD</option>
+                                </select>
+                            </div>
+				        </div>
+
+
+				        <br><br>
+			            <div ng-switch="myPGFileVar">
+                     <div ng-switch-when="getEPD|postEPD" ng-switch-when-separator="|">
+								      <label for="saas_domain" class="col-sm-3 control-label">7. saas_domain: </label>
+                             <div class="col-sm-9">
+	                                <select class="form-control" id="saas" name="saas" >
+                                      <option value=""></option>
+	                                    <option>www.dropbox.com</option>
+	                                </select>
+                              </div>
+			                    </div>
+			            </div>
+			            <br><br>
+			            <div class="form-group">
+			            	<button type="submit" id="submit" name="submit" class="btn btn-primary pull-right" ng-click="myBuildFunc()">Build</button>
+			            </div>
+			        </form>
+	            </div>
+            </div>
+        </div>
+
+    </body>
+</html>
